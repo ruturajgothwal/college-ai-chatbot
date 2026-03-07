@@ -1,41 +1,44 @@
-import nltk
-import random
-from database import get_courses,get_fees
+from database import get_courses, get_fee
 
-nltk.download('punkt')
+def get_response(user_input):
 
-def get_response(user_input)
+    text = user_input.lower()
 
-    user_input = user_input.lower()
-
-    if course in user_input
+    if "course" in text:
 
         courses = get_courses()
 
-        return Available courses are  + , .join(courses)
+        return "Available courses: " + ", ".join(courses)
 
-    elif fee in user_input
+    elif "fee" in text:
 
-        if bca in user_input
-            fee = get_fees(BCA)
-            return fBCA fees is {fee} per year
+        if "bca" in text:
+            fee = get_fee("BCA")
+            return f"BCA fees is {fee} per year"
 
-        if bba in user_input
-            fee = get_fees(BBA)
-            return fBBA fees is {fee} per year
+        elif "bba" in text:
+            fee = get_fee("BBA")
+            return f"BBA fees is {fee} per year"
 
-    elif schedule in user_input or timing in user_input
+        elif "mba" in text:
+            fee = get_fee("MBA")
+            return f"MBA fees is {fee} per year"
 
-        return Classes run Monday to Friday between 9 AM to 3 PM
+        else:
+            return "Please specify course name"
 
-    elif admission in user_input
+    elif "schedule" in text or "timing" in text:
 
-        return Admission form is available on college website.
+        return "Classes run Monday to Friday between 9 AM and 3 PM."
 
-    elif hello in user_input or hi in user_input
+    elif "admission" in text:
 
-        return Hello student, how can I help you
+        return "You can apply through the college admission portal."
 
-    else
+    elif "hello" in text or "hi" in text:
 
-        return Sorry I didn't understand. Please ask about courses or fees.
+        return "Hello student, how can I help you?"
+
+    else:
+
+        return "Sorry I didn't understand. Ask about courses, fees, or admission."

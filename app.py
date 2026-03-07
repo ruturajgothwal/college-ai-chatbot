@@ -1,6 +1,5 @@
-from flask import Flask,render_template,request,jsonify
+from flask import Flask, render_template, request, jsonify
 from chatbot import get_response
-from voice import speak
 
 app = Flask(__name__)
 
@@ -10,18 +9,16 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/chat",methods=["POST"])
+@app.route("/chat", methods=["POST"])
 def chat():
 
-    user_message = request.json["message"]
+    message = request.json["message"]
 
-    response = get_response(user_message)
+    response = get_response(message)
 
-    speak(response)
-
-    return jsonify({"reply":response})
+    return jsonify({"reply": response})
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
 
-    app.run()
+    app.run(debug=True)

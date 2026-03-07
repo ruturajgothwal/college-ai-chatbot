@@ -1,8 +1,0 @@
-flask
-nltk
-numpy
-scikit-learn
-speechrecognition
-pyttsx3
-snowflake-connector-python
-pyaudio

@@ -1,1 +1,25 @@
+body{
+font-family:Arial;
+background:#f2f2f2;
+text-align:center;
+}
 
+#chatbox{
+width:60%;
+height:300px;
+margin:auto;
+background:white;
+border:1px solid gray;
+overflow:auto;
+padding:10px;
+}
+
+input{
+width:50%;
+padding:10px;
+margin-top:10px;
+}
+
+button{
+padding:10px 20px;
+}

@@ -2,17 +2,17 @@
 <html>
 
 <head>
-<title>College AI Voice Chatbot</title>
+<title>College AI Chatbot</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
 
-<h2>College Enquiry Voice Chatbot</h2>
+<h2>College Enquiry Chatbot</h2>
 
 <div id="chatbox"></div>
 
-<input type="text" id="msg">
+<input id="msg" placeholder="Ask about courses, fees, admission">
 
 <button onclick="send()">Send</button>
 
@@ -20,7 +20,7 @@
 
 function send(){
 
-let msg=document.getElementById("msg").value;
+let msg=document.getElementById("msg").value
 
 fetch("/chat",{
 method:"POST",
@@ -29,14 +29,18 @@ headers:{
 },
 body:JSON.stringify({message:msg})
 })
+
 .then(res=>res.json())
+
 .then(data=>{
 
-document.getElementById("chatbox").innerHTML+=
-"<p><b>You:</b>"+msg+"</p>";
+document.getElementById("chatbox").innerHTML +=
+"<p><b>You:</b> "+msg+"</p>"
 
-document.getElementById("chatbox").innerHTML+=
-"<p><b>Bot:</b>"+data.reply+"</p>";
+document.getElementById("chatbox").innerHTML +=
+"<p><b>Bot:</b> "+data.reply+"</p>"
+
+document.getElementById("msg").value=""
 
 })
 
@@ -45,5 +49,4 @@ document.getElementById("chatbox").innerHTML+=
 </script>
 
 </body>
-
 </html>
