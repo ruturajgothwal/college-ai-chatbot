@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>College AI Voice Chatbot</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h2>College Enquiry Voice Chatbot</h2>
+
+<div id="chatbox"></div>
+
+<input type="text" id="msg">
+
+<button onclick="send()">Send</button>
+
+<script>
+
+function send(){
+
+let msg=document.getElementById("msg").value;
+
+fetch("/chat",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({message:msg})
+})
+.then(res=>res.json())
+.then(data=>{
+
+document.getElementById("chatbox").innerHTML+=
+"<p><b>You:</b>"+msg+"</p>";
+
+document.getElementById("chatbox").innerHTML+=
+"<p><b>Bot:</b>"+data.reply+"</p>";
+
+})
+
+}
+
+</script>
+
+</body>
+
+</html>
