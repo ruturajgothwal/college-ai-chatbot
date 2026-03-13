@@ -11,7 +11,9 @@ def home():
 @app.route("/chat", methods=["POST"])
 def chat():
     message = request.json["message"]
+    print(f"Received message: '{message}'")
     response = get_dynamic_response(message)
+    print(f"Bot response: '{response}'")
     return jsonify({"reply": response})
 
 if __name__ == "__main__":

@@ -284,6 +284,36 @@ body {
     font-size: 1.2rem;
 }
 
+/* Course Buttons */
+.course-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.course-btn {
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.course-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
+}
+
+.course-btn:active {
+    transform: translateY(0);
+}
+
 /* Scrollbar Styling */
 .chatbox::-webkit-scrollbar {
     width: 8px;

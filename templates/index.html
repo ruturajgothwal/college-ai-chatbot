@@ -99,6 +99,7 @@
             })
             .then(res => res.json())
             .then(data => {
+                console.log('Bot response:', data.reply);
                 addMessage("Bot", data.reply, "bot");
             })
             .catch(error => {
@@ -119,7 +120,11 @@
 
             const textSpan = document.createElement("span");
             textSpan.className = "message-text";
-            textSpan.textContent = message;
+            if (type === "bot") {
+                textSpan.innerHTML = message;
+            } else {
+                textSpan.textContent = message;
+            }
 
             messageDiv.appendChild(senderSpan);
             messageDiv.appendChild(textSpan);
@@ -138,6 +143,8 @@
         // Focus on input when page loads
         window.addEventListener("load", function() {
             document.getElementById("msg").focus();
+            // Add welcome message from bot
+            addMessage("Bot", "👋 Welcome to College AI Assistant! I'm here to help you with information about our courses, fees, schedules, and admission process. What would you like to know?", "bot");
         });
     </script>
 </body>
